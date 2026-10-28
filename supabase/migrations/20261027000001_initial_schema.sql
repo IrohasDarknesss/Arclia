@@ -4,7 +4,37 @@
 -- ============================================================================
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
-CREATE EXTENSION IF NOT EXISTS vector;
+
+DO $$
+BEGIN
+  CREATE EXTENSION IF NOT EXISTS vector;
+EXCEPTION WHEN OTHERS THEN
+  RAISE NOTICE 'pgvector extension not available; falling back to TEXT for embedding column.';
+END $$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'anon') THEN
+    CREATE ROLE anon NOLOGIN;
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'authenticated') THEN
+    CREATE ROLE authenticated NOLOGIN;
+  END IF;
+END $$;
+
+CREATE SCHEMA IF NOT EXISTS auth;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_proc p
+    JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'auth' AND p.proname = 'uid'
+  ) THEN
+    CREATE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql STABLE AS $fn$
+      SELECT NULLIF(current_setting('request.jwt.claim.sub', true), '')::uuid;
+    $fn$;
+  END IF;
+END $$;
 
 -- ============================================================================
 -- T001: papers (論文)
@@ -625,20 +655,42 @@ ALTER TABLE digest_deliveries ENABLE ROW LEVEL SECURITY;
 -- ============================================================================
 -- Auxiliary Table 3: paper_embeddings (B008 / F08 論文 Embedding)
 -- ============================================================================
-CREATE TABLE paper_embeddings (
-  paper_id         BIGINT        NOT NULL,
-  paper_version_id BIGINT        NOT NULL,
-  version          INTEGER       NOT NULL,
-  model_id         VARCHAR(128)  NOT NULL,
-  input_hash       VARCHAR(64)   NOT NULL,
-  embedding        vector(1536)  NOT NULL,
-  generated_at     TIMESTAMPTZ   NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT pk_paper_embeddings PRIMARY KEY (paper_id),
-  CONSTRAINT fk_paper_embeddings_paper_id FOREIGN KEY (paper_id)
-    REFERENCES papers (id) ON DELETE CASCADE,
-  CONSTRAINT fk_paper_embeddings_paper_version_id FOREIGN KEY (paper_version_id)
-    REFERENCES paper_versions (id) ON DELETE RESTRICT
-);
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'vector') THEN
+    EXECUTE '
+      CREATE TABLE paper_embeddings (
+        paper_id         BIGINT        NOT NULL,
+        paper_version_id BIGINT        NOT NULL,
+        version          INTEGER       NOT NULL,
+        model_id         VARCHAR(128)  NOT NULL,
+        input_hash       VARCHAR(64)   NOT NULL,
+        embedding        vector(1536)  NOT NULL,
+        generated_at     TIMESTAMPTZ   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT pk_paper_embeddings PRIMARY KEY (paper_id),
+        CONSTRAINT fk_paper_embeddings_paper_id FOREIGN KEY (paper_id)
+          REFERENCES papers (id) ON DELETE CASCADE,
+        CONSTRAINT fk_paper_embeddings_paper_version_id FOREIGN KEY (paper_version_id)
+          REFERENCES paper_versions (id) ON DELETE RESTRICT
+      )';
+  ELSE
+    EXECUTE '
+      CREATE TABLE paper_embeddings (
+        paper_id         BIGINT        NOT NULL,
+        paper_version_id BIGINT        NOT NULL,
+        version          INTEGER       NOT NULL,
+        model_id         VARCHAR(128)  NOT NULL,
+        input_hash       VARCHAR(64)   NOT NULL,
+        embedding        TEXT          NOT NULL,
+        generated_at     TIMESTAMPTZ   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT pk_paper_embeddings PRIMARY KEY (paper_id),
+        CONSTRAINT fk_paper_embeddings_paper_id FOREIGN KEY (paper_id)
+          REFERENCES papers (id) ON DELETE CASCADE,
+        CONSTRAINT fk_paper_embeddings_paper_version_id FOREIGN KEY (paper_version_id)
+          REFERENCES paper_versions (id) ON DELETE RESTRICT
+      )';
+  END IF;
+END $$;
 
 ALTER TABLE paper_embeddings ENABLE ROW LEVEL SECURITY;
 

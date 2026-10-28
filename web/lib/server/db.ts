@@ -9,7 +9,7 @@ export function getDbPool(): Pool {
   if (!global.__arcliaPgPool) {
     const connectionString =
       process.env.DATABASE_URL ||
-      "postgresql://postgres:postgres@localhost:54322/postgres";
+      "postgresql://127.0.0.1:5432/arclia";
     global.__arcliaPgPool = new Pool({
       connectionString,
       max: 10,

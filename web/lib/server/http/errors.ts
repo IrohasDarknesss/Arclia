@@ -53,6 +53,14 @@ export async function handleApiRoute(
   try {
     return await handler();
   } catch (err) {
+    if (
+      err &&
+      typeof err === "object" &&
+      "digest" in err &&
+      (err as { digest?: string }).digest === "DYNAMIC_SERVER_USAGE"
+    ) {
+      throw err;
+    }
     if (err instanceof ApiError) {
       return jsonError(err.statusCode, err.code, err.message, err.details);
     }

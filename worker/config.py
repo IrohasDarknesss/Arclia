@@ -36,7 +36,7 @@ class WorkerConfig:
     # 1-6: DB, Cache, Auth
     database_url: str = field(
         default_factory=lambda: os.environ.get(
-            "DATABASE_URL", "postgresql://postgres:postgres@localhost:54322/postgres"
+            "DATABASE_URL", "postgresql://127.0.0.1:5432/arclia"
         )
     )
     redis_url: str = field(
