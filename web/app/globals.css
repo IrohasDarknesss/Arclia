@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "katex/dist/katex.min.css";
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}

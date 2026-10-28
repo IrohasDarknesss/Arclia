@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1280" width="1440" height="1280" font-family="Noto Sans JP, sans-serif" font-size="11" role="img" aria-label="論文検索 ワイヤーフレーム（デスクトップ）">
+<rect x="0" y="0" width="1440" height="1280" fill="#ffffff"/>
+<rect x="0" y="0" width="1440" height="64" rx="0" fill="#ffffff" stroke="#e5e7eb"/>
+<rect x="40" y="16" width="160" height="32" rx="6" fill="#111827" stroke="#111827" data-item-id="H01"/>
+<text x="120" y="37" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">サービス名（未決定）</text>
+<rect x="848" y="20" width="84" height="26" rx="13" fill="#eff6ff" stroke="#93c5fd"/>
+<text x="760" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H02">新着論文</text>
+<text x="860" y="38" font-size="13" fill="#1d4ed8" font-weight="bold" text-anchor="start" data-item-id="H03">論文検索</text>
+<text x="960" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H04">料金</text>
+<text x="1040" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H05">マイページ</text>
+<rect x="1180" y="16" width="220" height="32" rx="16" fill="#f9fafb" stroke="#d1d5db" data-item-id="H07"/>
+<text x="1196" y="37" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">● user@example.com（Free）</text>
+<text x="120" y="116" font-size="24" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H09">論文検索</text>
+<rect x="120" y="140" width="1200" height="128" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+<rect x="140" y="160" width="860" height="44" rx="8" fill="#ffffff" stroke="#6b7280" data-item-id="H10"/>
+<text x="156" y="188" font-size="14" fill="#111827" font-weight="normal" text-anchor="start">🔍 sparse attention</text>
+<rect x="1020" y="160" width="120" height="44" rx="8" fill="#2563eb" stroke="#2563eb" data-item-id="H14"/>
+<text x="1080" y="188" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">検索</text>
+<text x="140" y="224" font-size="11" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H11">タイトル・著者名・概要（Abstract）・キーワードから探します</text>
+<text x="140" y="252" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">カテゴリ</text>
+<rect x="200" y="234" width="240" height="28" rx="6" fill="#ffffff" stroke="#9ca3af" data-item-id="H12"/>
+<text x="212" y="253" font-size="12" fill="#111827" font-weight="normal" text-anchor="start">すべてのカテゴリ　▾</text>
+<text x="470" y="252" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">並び順</text>
+<rect x="520" y="234" width="220" height="28" rx="6" fill="#ffffff" stroke="#9ca3af" data-item-id="H13"/>
+<text x="532" y="253" font-size="12" fill="#111827" font-weight="normal" text-anchor="start">関連度順　▾</text>
+<text x="120" y="300" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H16">「sparse attention」の検索結果　24件</text>
+<rect x="112" y="312" width="1216" height="848" rx="8" fill="none" stroke="#93c5fd" stroke-dasharray="4 3" data-item-id="H17"/>
+<rect x="120" y="320" width="1200" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+<text x="134" y="346" font-size="13" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H18">大規模言語モデルの推論効率を高める疎な注意機構</text>
+<text x="134" y="366" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H19">Sparse Attention for Efficient LLM Inference</text>
+<text x="134" y="384" font-size="10" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H20">Taro Yamada, Hanako Suzuki, ほか3名</text>
+<rect x="134" y="394" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db" data-item-id="H21"/>
+<text x="144" y="408" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.LG</text>
+<rect x="196" y="394" width="30" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db" data-item-id="H22"/>
+<text x="204" y="408" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">v1</text>
+<text x="236" y="408" font-size="10" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H23">投稿日 2026-10-24（JST）</text>
+<rect x="1216" y="394" width="90" height="20" rx="10" fill="#fff7ed" stroke="#fdba74" data-item-id="H24"/>
+<text x="1224" y="408" font-size="10" fill="#9a3412" font-weight="normal" text-anchor="start">Abstractベース</text>
+<g data-item-id="H25">
+<text x="134" y="434" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">注意機構の計算を重要な部分に絞ることで、精度をほぼ保ったまま</text>
+<text x="134" y="451" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">推論時間を約40%短縮できると報告している。</text>
+</g>
+<rect x="120" y="532" width="1200" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+<text x="134" y="558" font-size="13" fill="#111827" font-weight="bold" text-anchor="start">Sparse Mixture of Attention Heads</text>
+<text x="134" y="578" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">Sparse Attention for Efficient LLM Inference</text>
+<text x="134" y="596" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">Taro Yamada, Hanako Suzuki, ほか3名</text>
+<rect x="134" y="606" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="144" y="620" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.LG</text>
+<rect x="196" y="606" width="30" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="204" y="620" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">v1</text>
+<text x="236" y="620" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">投稿日 2026-10-24（JST）</text>
+<rect x="134" y="632" width="120" height="20" rx="10" fill="#fef3c7" stroke="#f59e0b" data-item-id="H26"/>
+<text x="142" y="646" font-size="10" fill="#92400e" font-weight="normal" text-anchor="start">速報版・要約処理中</text>
+<text x="134" y="670" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">日本語要約は準備中です。原題とAbstractの速報版を表示しています。</text>
+<rect x="120" y="744" width="1200" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+<text x="134" y="770" font-size="13" fill="#111827" font-weight="bold" text-anchor="start">長文脈のための疎な注意の理論解析</text>
+<text x="134" y="790" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">Sparse Attention for Efficient LLM Inference</text>
+<text x="134" y="808" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">Taro Yamada, Hanako Suzuki, ほか3名</text>
+<rect x="134" y="818" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="144" y="832" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.LG</text>
+<rect x="196" y="818" width="30" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="204" y="832" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">v1</text>
+<text x="236" y="832" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">投稿日 2026-10-24（JST）</text>
+<rect x="1216" y="818" width="90" height="20" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+<text x="1224" y="832" font-size="10" fill="#9a3412" font-weight="normal" text-anchor="start">Abstractベース</text>
+<g>
+<text x="134" y="858" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">注意機構の計算を重要な部分に絞ることで、精度をほぼ保ったまま</text>
+<text x="134" y="875" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">推論時間を約40%短縮できると報告している。</text>
+</g>
+<rect x="120" y="956" width="1200" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+<text x="134" y="982" font-size="13" fill="#111827" font-weight="bold" text-anchor="start">画像認識における疎な自己注意</text>
+<text x="134" y="1002" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">Sparse Attention for Efficient LLM Inference</text>
+<text x="134" y="1020" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">Taro Yamada, Hanako Suzuki, ほか3名</text>
+<rect x="134" y="1030" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="144" y="1044" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.LG</text>
+<rect x="196" y="1030" width="30" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="204" y="1044" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">v1</text>
+<text x="236" y="1044" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">投稿日 2026-10-24（JST）</text>
+<rect x="1216" y="1030" width="90" height="20" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+<text x="1224" y="1044" font-size="10" fill="#9a3412" font-weight="normal" text-anchor="start">Abstractベース</text>
+<g>
+<text x="134" y="1070" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">注意機構の計算を重要な部分に絞ることで、精度をほぼ保ったまま</text>
+<text x="134" y="1087" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">推論時間を約40%短縮できると報告している。</text>
+</g>
+<rect x="0" y="1200" width="1440" height="80" rx="0" fill="#f3f4f6" stroke="#e5e7eb"/>
+<text x="120" y="1230" font-size="11" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H33">本サービスはarXivが運営するものではありません。論文の原文と権利は各著者およびarXivに帰属します。</text>
+<text x="120" y="1256" font-size="11" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H34">利用規約</text>
+</svg>

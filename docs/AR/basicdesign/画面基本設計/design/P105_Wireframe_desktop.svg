@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" width="1440" height="920" font-family="Noto Sans JP, sans-serif" font-size="11" role="img" aria-label="Appendix ワイヤーフレーム（デスクトップ）">
+<rect x="0" y="0" width="1440" height="920" fill="#ffffff"/>
+<rect x="0" y="0" width="1440" height="64" rx="0" fill="#ffffff" stroke="#e5e7eb"/>
+<rect x="40" y="16" width="160" height="32" rx="6" fill="#111827" stroke="#111827" data-item-id="H01"/>
+<text x="120" y="37" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">サービス名（未決定）</text>
+<text x="760" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H02">新着論文</text>
+<text x="860" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H03">論文検索</text>
+<text x="960" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H04">料金</text>
+<text x="1040" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H05">マイページ</text>
+<rect x="1180" y="16" width="220" height="32" rx="16" fill="#f9fafb" stroke="#d1d5db" data-item-id="H07"/>
+<text x="1196" y="37" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">● user@example.com（Free）</text>
+<text x="220" y="104" font-size="12" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H11">‹ 論文詳細に戻る</text>
+<text x="220" y="138" font-size="24" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H09">Appendix</text>
+<text x="220" y="164" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H10">大規模言語モデルの推論効率を高める疎な注意機構</text>
+<text x="220" y="184" font-size="11" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H12">Sparse Attention for Efficient Large Language Model Inference</text>
+<text x="220" y="204" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H13">arXiv:2610.01234</text>
+<rect x="340" y="190" width="110" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db" data-item-id="H14"/>
+<text x="350" y="204" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">表示中 v1 / 最新 v2</text>
+<rect x="220" y="234" width="1000" height="96" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="236" y="260" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">原文</text>
+<rect x="236" y="274" width="240" height="36" rx="8" fill="#ffffff" stroke="#9ca3af" data-item-id="H15"/>
+<text x="356" y="297" font-size="12" fill="#374151" font-weight="normal" text-anchor="middle">arXiv で原文を開く ↗</text>
+<text x="500" y="297" font-size="11" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H16">ライセンス: arXiv 標準ライセンス（再配布不可）</text>
+<rect x="220" y="350" width="1000" height="170" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="236" y="376" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">数式解説</text>
+<g data-item-id="H17">
+<rect x="236" y="390" width="968" height="40" rx="4" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="720.0" y="416" font-size="13" fill="#111827" font-weight="normal" text-anchor="middle">Attention(Q,K,V) = softmax(QKᵀ / √d) V</text>
+<text x="236" y="452" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">式(1)：各トークンの問い合わせ Q と鍵 K の近さを計算し、値 V の重み付き平均を取る。</text>
+<text x="236" y="474" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">本論文は近さの上位k件だけを残し、残りを0として計算量を減らす（§3.1, p.4）。</text>
+<text x="236" y="498" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">出典: 原文 §3.1 p.4</text>
+</g>
+<rect x="220" y="540" width="1000" height="150" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="236" y="566" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">参考文献</text>
+<g data-item-id="H19">
+<text x="236" y="592" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">[1] A. Vaswani et al. Attention Is All You Need. 2017.</text>
+<text x="236" y="620" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">[2] R. Child et al. Generating Long Sequences with Sparse Transformers. 2019.</text>
+<text x="236" y="648" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">[3] I. Beltagy et al. Longformer. 2020.</text>
+</g>
+<text x="1204" y="592" font-size="10" fill="#2563eb" font-weight="normal" text-anchor="end" data-item-id="H20">arXiv ↗</text>
+<text x="1204" y="620" font-size="10" fill="#2563eb" font-weight="normal" text-anchor="end">arXiv ↗</text>
+<rect x="220" y="710" width="1000" height="110" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="236" y="736" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">日本語全文</text>
+<rect x="236" y="750" width="968" height="52" rx="6" fill="#f9fafb" stroke="#d1d5db" data-item-id="H24"/>
+<text x="248" y="772" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">この論文は日本語全文の公開に必要な利用許諾が確認できないため、</text>
+<text x="248" y="790" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">日本語全文は公開していません。原文は arXiv でご覧ください。</text>
+<rect x="0" y="840" width="1440" height="80" rx="0" fill="#f3f4f6" stroke="#e5e7eb"/>
+<text x="220" y="870" font-size="11" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H30">本サービスはarXivが運営するものではありません。論文の原文と権利は各著者およびarXivに帰属します。</text>
+<text x="220" y="896" font-size="11" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H31">利用規約</text>
+</svg>

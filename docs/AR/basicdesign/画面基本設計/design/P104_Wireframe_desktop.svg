@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 758" width="1440" height="758" font-family="Noto Sans JP, sans-serif" font-size="11" role="img" aria-label="論文詳細 ワイヤーフレーム（デスクトップ）">
+<rect x="0" y="0" width="1440" height="758" fill="#ffffff"/>
+<rect x="0" y="0" width="1440" height="64" rx="0" fill="#ffffff" stroke="#e5e7eb"/>
+<rect x="40" y="16" width="160" height="32" rx="6" fill="#111827" stroke="#111827" data-item-id="H01"/>
+<text x="120" y="37" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">サービス名（未決定）</text>
+<text x="760" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H02">新着論文</text>
+<text x="860" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H03">論文検索</text>
+<text x="960" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H04">料金</text>
+<text x="1040" y="38" font-size="13" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H05">マイページ</text>
+<rect x="1180" y="16" width="220" height="32" rx="16" fill="#f9fafb" stroke="#d1d5db" data-item-id="H07"/>
+<text x="1196" y="37" font-size="11" fill="#374151" font-weight="normal" text-anchor="start">● user@example.com（Free）</text>
+<text x="120" y="120" font-size="22" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H09">大規模言語モデルの推論効率を高める疎な注意機構</text>
+<text x="120" y="144" font-size="13" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H10">Sparse Attention for Efficient Large Language Model Inference</text>
+<text x="120" y="166" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H11">Taro Yamada, Hanako Suzuki, Ken Sato, Mei Tanaka, Jiro Ito</text>
+<rect x="120" y="178" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db" data-item-id="H12"/>
+<text x="130" y="192" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.LG</text>
+<rect x="182" y="178" width="56" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="192" y="192" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">cs.CL</text>
+<text x="250" y="192" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H13">arXiv:2610.01234</text>
+<rect x="360" y="178" width="104" height="20" rx="10" fill="#f3f4f6" stroke="#d1d5db" data-item-id="H14"/>
+<text x="370" y="192" font-size="10" fill="#374151" font-weight="normal" text-anchor="start">表示中 v1 / 最新 v2</text>
+<rect x="120" y="202" width="820" height="22" rx="4" fill="#fffbeb" stroke="#fcd34d" data-item-id="H15"/>
+<text x="130" y="217" font-size="10" fill="#92400e" font-weight="normal" text-anchor="start">この要約は v1 を対象にしています。arXiv には新しい版 v2 があります。</text>
+<text x="120" y="242" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H16">投稿日 2026-10-24（JST）</text>
+<text x="310" y="242" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H17">更新日 2026-10-25（JST）</text>
+<rect x="500" y="228" width="90" height="20" rx="10" fill="#fff7ed" stroke="#fdba74" data-item-id="H18"/>
+<text x="510" y="242" font-size="10" fill="#9a3412" font-weight="normal" text-anchor="start">Abstractベース</text>
+<rect x="120" y="276" width="860" height="40" rx="8" fill="#f9fafb" stroke="#e5e7eb" data-item-id="H22"/>
+<rect x="128.0" y="282" width="277.3333333333333" height="28" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="266.66666666666663" y="301" font-size="12" fill="#374151" font-weight="normal" text-anchor="middle">30秒要約</text>
+<rect x="409.3333333333333" y="282" width="277.3333333333333" height="28" rx="6" fill="#ffffff" stroke="#2563eb"/>
+<text x="548.0" y="301" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="middle">3分要約</text>
+<rect x="690.6666666666666" y="282" width="277.3333333333333" height="28" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="829.3333333333333" y="301" font-size="12" fill="#374151" font-weight="normal" text-anchor="middle">10分解説</text>
+<text x="120" y="336" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H23">結論</text>
+<rect x="120" y="344" width="76" height="20" rx="10" fill="#ecfdf5" stroke="#6ee7b7" data-item-id="H29"/>
+<text x="130" y="358" font-size="10" fill="#065f46" font-weight="normal" text-anchor="start">論文の記載</text>
+<text x="204" y="358" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">疎な注意機構により、精度をほぼ保ったまま推論時間を約40%短縮できる。</text>
+<text x="860" y="358" font-size="10" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H30">出典 §4.2 p.6</text>
+<text x="120" y="388" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H24">課題（研究背景）</text>
+<rect x="120" y="396" width="76" height="20" rx="10" fill="#ecfdf5" stroke="#6ee7b7"/>
+<text x="130" y="410" font-size="10" fill="#065f46" font-weight="normal" text-anchor="start">論文の記載</text>
+<text x="204" y="410" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">長い入力で注意機構の計算量が入力長の2乗で増え、推論が遅くなる。</text>
+<text x="120" y="440" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H25">手法</text>
+<rect x="120" y="448" width="92" height="20" rx="10" fill="#f5f3ff" stroke="#c4b5fd"/>
+<text x="130" y="462" font-size="10" fill="#5b21b6" font-weight="normal" text-anchor="start">AIの補足（推測）</text>
+<text x="220" y="462" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">重要度の低いトークン間の注意を省き、上位k件だけを計算する。</text>
+<text x="120" y="492" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H26">結果（実験結果）</text>
+<rect x="120" y="500" width="76" height="20" rx="10" fill="#ecfdf5" stroke="#6ee7b7"/>
+<text x="130" y="514" font-size="10" fill="#065f46" font-weight="normal" text-anchor="start">論文の記載</text>
+<text x="204" y="514" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">ベンチマーク X で精度低下0.3ポイント、推論時間は約40%短縮。</text>
+<text x="120" y="544" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H27">限界</text>
+<rect x="120" y="552" width="76" height="20" rx="10" fill="#ecfdf5" stroke="#6ee7b7"/>
+<text x="130" y="566" font-size="10" fill="#065f46" font-weight="normal" text-anchor="start">論文の記載</text>
+<text x="204" y="566" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">評価は英語のベンチマークに限られ、他言語での効果は未検証。</text>
+<text x="120" y="596" font-size="14" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H28">応用</text>
+<rect x="120" y="604" width="76" height="20" rx="10" fill="#ecfdf5" stroke="#6ee7b7"/>
+<text x="130" y="618" font-size="10" fill="#065f46" font-weight="normal" text-anchor="start">論文の記載</text>
+<text x="204" y="618" font-size="11" fill="#1f2937" font-weight="normal" text-anchor="start">長文の要約や検索拡張生成での高速化が見込まれる。</text>
+<rect x="1020" y="104" width="300" height="236" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+<rect x="1040" y="124" width="260" height="40" rx="8" fill="#ffffff" stroke="#2563eb" data-item-id="H19"/>
+<text x="1170" y="149" font-size="13" fill="#2563eb" font-weight="bold" text-anchor="middle">☆ ブックマークに追加</text>
+<rect x="1040" y="176" width="260" height="40" rx="8" fill="#ffffff" stroke="#9ca3af" data-item-id="H20"/>
+<text x="1170" y="201" font-size="13" fill="#374151" font-weight="normal" text-anchor="middle">arXiv で原文を開く ↗</text>
+<rect x="1040" y="228" width="260" height="40" rx="8" fill="#ffffff" stroke="#9ca3af" data-item-id="H21"/>
+<text x="1170" y="253" font-size="12" fill="#374151" font-weight="normal" text-anchor="middle">Appendix（数式解説・参考文献）</text>
+<text x="1040" y="290" font-size="11" fill="#6b7280" font-weight="bold" text-anchor="start">要約の生成情報</text>
+<text x="1040" y="308" font-size="10" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H31">処理日時 2026-10-25 09:12（JST）</text>
+<text x="1040" y="324" font-size="10" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H32">生成モデル model-x-2026</text>
+<text x="1180" y="324" font-size="10" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H33">対象の版 v1</text>
+<rect x="0" y="678" width="1440" height="80" rx="0" fill="#f3f4f6" stroke="#e5e7eb"/>
+<text x="120" y="708" font-size="11" fill="#4b5563" font-weight="normal" text-anchor="start" data-item-id="H46">本サービスはarXivが運営するものではありません。論文の原文と権利は各著者およびarXivに帰属します。</text>
+<text x="120" y="734" font-size="11" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H47">利用規約</text>
+</svg>

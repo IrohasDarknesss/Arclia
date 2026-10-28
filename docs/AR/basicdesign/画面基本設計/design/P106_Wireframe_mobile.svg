@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 414 1538" width="414" height="1538" font-family="Noto Sans JP, sans-serif" font-size="11" role="img" aria-label="マイページ ワイヤーフレーム（モバイル）">
+<rect x="0" y="0" width="414" height="1538" fill="#ffffff"/>
+<rect x="0" y="0" width="414" height="56" rx="0" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="16" y="12" width="150" height="32" rx="6" fill="#111827" stroke="#111827" stroke-width="1" data-item-id="H01"/>
+<text x="91" y="33" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">サービス名（未決定）</text>
+<rect x="358" y="10" width="40" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H08"/>
+<line x1="368" y1="20" x2="388" y2="20" stroke="#374151" stroke-width="2"/>
+<line x1="368" y1="28" x2="388" y2="28" stroke="#374151" stroke-width="2"/>
+<line x1="368" y1="36" x2="388" y2="36" stroke="#374151" stroke-width="2"/>
+<text x="16" y="92" font-size="20" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H09">マイページ</text>
+<rect x="16" y="108" width="382" height="150" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="136" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H11">アカウント</text>
+<text x="32" y="164" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">メールアドレス</text>
+<text x="136" y="164" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H12">user@example.com</text>
+<text x="32" y="188" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">契約プラン</text>
+<rect x="136" y="175" width="48" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1" data-item-id="H13"/>
+<text x="160" y="188" font-size="10" fill="#374151" font-weight="bold" text-anchor="middle">Free</text>
+<text x="32" y="212" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">会員登録日</text>
+<text x="136" y="212" font-size="11" fill="#374151" font-weight="normal" text-anchor="start" data-item-id="H14">2026-09-01（JST）</text>
+<text x="32" y="242" font-size="11" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H15">プランを確認・変更する ›</text>
+<rect x="286" y="226" width="96" height="24" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H16"/>
+<text x="334.0" y="242.0" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">ログアウト</text>
+<rect x="16" y="274" width="382" height="292" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="302" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H17">関心分野</text>
+<text x="32" y="322" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">登録した分野・キーワードをもとに、ホームのおすすめが選ばれます。</text>
+<g data-item-id="H19">
+<rect x="32" y="336" width="120" height="24" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="42" y="352" font-size="10" fill="#3730a3" font-weight="normal" text-anchor="start">cs.LG（カテゴリ）</text>
+<rect x="160" y="336" width="120" height="24" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="170" y="352" font-size="10" fill="#3730a3" font-weight="normal" text-anchor="start">cs.CL（カテゴリ）</text>
+<rect x="32" y="366" width="130" height="24" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="42" y="382" font-size="10" fill="#3730a3" font-weight="normal" text-anchor="start">拡散モデル（キーワード）</text>
+</g>
+<rect x="134" y="340" width="14" height="16" rx="7" fill="#eef2ff" stroke="#eef2ff" stroke-width="1" data-item-id="H20"/>
+<text x="141" y="352" font-size="11" fill="#3730a3" font-weight="normal" text-anchor="middle">×</text>
+<rect x="262" y="340" width="14" height="16" rx="7" fill="#eef2ff" stroke="#eef2ff" stroke-width="1"/>
+<text x="269" y="352" font-size="11" fill="#3730a3" font-weight="normal" text-anchor="middle">×</text>
+<rect x="144" y="370" width="14" height="16" rx="7" fill="#eef2ff" stroke="#eef2ff" stroke-width="1"/>
+<text x="151" y="382" font-size="11" fill="#3730a3" font-weight="normal" text-anchor="middle">×</text>
+<text x="32" y="408" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">カテゴリを追加</text>
+<rect x="32" y="416" width="262" height="30" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H21"/>
+<text x="42" y="436" font-size="11" fill="#9ca3af" font-weight="normal" text-anchor="start">カテゴリを選択（例: cs.AI）</text>
+<text x="280" y="436" font-size="11" fill="#6b7280" font-weight="normal" text-anchor="start">▾</text>
+<rect x="306" y="416" width="76" height="30" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H22"/>
+<text x="344.0" y="435.0" font-size="11" fill="#374151" font-weight="normal" text-anchor="middle">追加</text>
+<text x="32" y="464" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">キーワードを追加</text>
+<rect x="32" y="472" width="262" height="30" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H23"/>
+<text x="42" y="492" font-size="11" fill="#9ca3af" font-weight="normal" text-anchor="start">キーワードを入力（50文字以内）</text>
+<rect x="306" y="472" width="76" height="30" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H24"/>
+<text x="344.0" y="491.0" font-size="11" fill="#374151" font-weight="normal" text-anchor="middle">追加</text>
+<rect x="32" y="522" width="350" height="34" rx="6" fill="#111827" stroke="#111827" stroke-width="1" data-item-id="H26"/>
+<text x="207.0" y="543.0" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">関心分野を保存</text>
+<rect x="16" y="582" width="382" height="292" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="610" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H27">ブックマーク</text>
+<text x="136" y="610" font-size="11" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H28">12件</text>
+<line x1="32" y1="626" x2="382" y2="626" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="648" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start" data-item-id="H29">LLMの推論効率を高める疎な注意機構</text>
+<rect x="32" y="656" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1" data-item-id="H30"/>
+<text x="54" y="669" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.LG</text>
+<rect x="82" y="656" width="28" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1" data-item-id="H31"/>
+<text x="96" y="669" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">v2</text>
+<text x="120" y="669" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H32">保存日 2026-10-25（JST）</text>
+<rect x="306" y="654" width="76" height="24" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1" data-item-id="H33"/>
+<text x="344.0" y="670.0" font-size="10" fill="#b91c1c" font-weight="normal" text-anchor="middle">解除</text>
+<line x1="32" y1="690" x2="382" y2="690" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="712" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start">拡散モデルによる高解像度動画生成の高速化</text>
+<rect x="32" y="720" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="54" y="733" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.CV</text>
+<rect x="82" y="720" width="28" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="96" y="733" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">v1</text>
+<text x="120" y="733" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">保存日 2026-10-20（JST）</text>
+<rect x="306" y="718" width="76" height="24" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+<text x="344.0" y="734.0" font-size="10" fill="#b91c1c" font-weight="normal" text-anchor="middle">解除</text>
+<line x1="32" y1="754" x2="382" y2="754" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="776" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start">Retrieval-Augmented Generation の評価指標</text>
+<rect x="32" y="784" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="54" y="797" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.CL</text>
+<rect x="82" y="784" width="28" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="96" y="797" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">v1</text>
+<text x="120" y="797" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">保存日 2026-10-12（JST）</text>
+<rect x="306" y="782" width="76" height="24" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+<text x="344.0" y="798.0" font-size="10" fill="#b91c1c" font-weight="normal" text-anchor="middle">解除</text>
+<line x1="32" y1="818" x2="382" y2="818" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="137.0" y="830" width="140" height="28" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H34"/>
+<text x="207.0" y="848.0" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">さらに表示</text>
+<rect x="16" y="890" width="382" height="256" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="918" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H35">閲覧履歴</text>
+<text x="106" y="918" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">ログイン中に開いた論文（新しい順）</text>
+<line x1="32" y1="934" x2="382" y2="934" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="956" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start" data-item-id="H36">グラフニューラルネットワークの分子設計への応用</text>
+<rect x="32" y="964" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1" data-item-id="H37"/>
+<text x="54" y="977" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.LG</text>
+<text x="86" y="977" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H38">閲覧 2026-10-26 09:12（JST）</text>
+<line x1="32" y1="986" x2="382" y2="986" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="1008" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start">LLMの推論効率を高める疎な注意機構</text>
+<rect x="32" y="1016" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="54" y="1029" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.LG</text>
+<text x="86" y="1029" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">閲覧 2026-10-25 21:40（JST）</text>
+<line x1="32" y1="1038" x2="382" y2="1038" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="1060" font-size="12" fill="#1d4ed8" font-weight="bold" text-anchor="start">強化学習による多段推論の改善</text>
+<rect x="32" y="1068" width="44" height="18" rx="9" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+<text x="54" y="1081" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">cs.AI</text>
+<text x="86" y="1081" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">閲覧 2026-10-24 18:05（JST）</text>
+<line x1="32" y1="1090" x2="382" y2="1090" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="137.0" y="1102" width="140" height="28" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1" data-item-id="H39"/>
+<text x="207.0" y="1120.0" font-size="10" fill="#374151" font-weight="normal" text-anchor="middle">さらに表示</text>
+<rect x="16" y="1162" width="382" height="136" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="32" y="1190" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H40">通知設定</text>
+<text x="32" y="1214" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H41">関心分野の新着論文をまとめてお知らせします。</text>
+<text x="32" y="1248" font-size="12" fill="#111827" font-weight="normal" text-anchor="start">新着ダイジェストを受け取る</text>
+<rect x="334" y="1232" width="44" height="24" rx="12" fill="#111827" stroke="#111827" stroke-width="1" data-item-id="H42"/>
+<rect x="356" y="1234" width="20" height="20" rx="10" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="32" y="1278" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H43">配信先: user@example.com</text>
+<rect x="16" y="1314" width="382" height="128" rx="8" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+<text x="32" y="1342" font-size="15" fill="#111827" font-weight="bold" text-anchor="start" data-item-id="H44">退会</text>
+<text x="32" y="1366" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H45">退会すると、関心分野・ブックマーク・閲覧履歴・契約情報が</text>
+<text x="32" y="1382" font-size="10" fill="#6b7280" font-weight="normal" text-anchor="start">削除され、元に戻せません。</text>
+<rect x="32" y="1398" width="120" height="30" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1" data-item-id="H46"/>
+<text x="92.0" y="1417.0" font-size="11" fill="#b91c1c" font-weight="normal" text-anchor="middle">退会する</text>
+<rect x="0" y="1466" width="414" height="72" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+<text x="16" y="1490" font-size="9" fill="#6b7280" font-weight="normal" text-anchor="start" data-item-id="H58">本サービスはarXivが運営するものではありません。</text>
+<text x="16" y="1504" font-size="9" fill="#6b7280" font-weight="normal" text-anchor="start">論文の原文と権利は各著者およびarXivに帰属します。</text>
+<text x="16" y="1526" font-size="10" fill="#2563eb" font-weight="normal" text-anchor="start" data-item-id="H59">利用規約</text>
+</svg>
