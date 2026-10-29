@@ -4,6 +4,32 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass, field
+from pathlib import Path
+
+
+def _load_dotenv() -> None:
+    for env_path in [
+        Path.cwd() / ".env",
+        Path(__file__).resolve().parent.parent / ".env",
+        Path.home() / ".env",
+    ]:
+        if env_path.is_file():
+            try:
+                for line in env_path.read_text(encoding="utf-8").splitlines():
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    k, v = line.split("=", 1)
+                    k = k.strip()
+                    v = v.strip().strip("'\"")
+                    if k and k not in os.environ:
+                        os.environ[k] = v
+            except Exception:
+                pass
+            break
+
+
+_load_dotenv()
 
 
 def _parse_bool(val: str | None, default: bool = False) -> bool:
@@ -88,31 +114,56 @@ class WorkerConfig:
 
     # 13-22: LLM & Embedding
     llm_api_key: str = field(
-        default_factory=lambda: os.environ.get("LLM_API_KEY", "")
+        default_factory=lambda: os.environ.get("LLM_API_KEY")
+        or os.environ.get("GEMINI_API_KEY", "")
     )
     llm_api_base_url: str = field(
-        default_factory=lambda: os.environ.get(
-            "LLM_API_BASE_URL", "https://api.openai.com/v1"
+        default_factory=lambda: os.environ.get("LLM_API_BASE_URL")
+        or (
+            "https://generativelanguage.googleapis.com/v1beta/openai/"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "https://api.openai.com/v1"
         )
     )
     llm_model_summary_short: str = field(
-        default_factory=lambda: os.environ.get(
-            "LLM_MODEL_SUMMARY_SHORT", "gpt-4o-mini"
+        default_factory=lambda: os.environ.get("LLM_MODEL_SUMMARY_SHORT")
+        or (
+            "gemini-3.5-flash-lite"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "gpt-4o-mini"
         )
     )
     llm_model_summary_standard: str = field(
-        default_factory=lambda: os.environ.get(
-            "LLM_MODEL_SUMMARY_STANDARD", "gpt-4o-mini"
+        default_factory=lambda: os.environ.get("LLM_MODEL_SUMMARY_STANDARD")
+        or (
+            "gemini-3.5-flash-lite"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "gpt-4o-mini"
         )
     )
     llm_model_summary_deep: str = field(
-        default_factory=lambda: os.environ.get("LLM_MODEL_SUMMARY_DEEP", "gpt-4o")
+        default_factory=lambda: os.environ.get("LLM_MODEL_SUMMARY_DEEP")
+        or (
+            "gemini-3.5-flash-lite"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "gpt-4o"
+        )
     )
     llm_model_validator: str = field(
-        default_factory=lambda: os.environ.get("LLM_MODEL_VALIDATOR", "gpt-4o-mini")
+        default_factory=lambda: os.environ.get("LLM_MODEL_VALIDATOR")
+        or (
+            "gemini-3.5-flash-lite"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "gpt-4o-mini"
+        )
     )
     llm_model_auxiliary: str = field(
-        default_factory=lambda: os.environ.get("LLM_MODEL_AUXILIARY", "gpt-4o-mini")
+        default_factory=lambda: os.environ.get("LLM_MODEL_AUXILIARY")
+        or (
+            "gemini-3.5-flash-lite"
+            if (not os.environ.get("LLM_API_KEY") and os.environ.get("GEMINI_API_KEY"))
+            else "gpt-4o-mini"
+        )
     )
     embedding_enabled: bool = field(
         default_factory=lambda: _parse_bool(

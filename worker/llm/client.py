@@ -42,6 +42,45 @@ class LlmClient:
         if not self._cfg.llm_api_key:
             raise LlmClientError("LLM_API_KEY is not configured")
 
+        if "generativelanguage.googleapis.com" in self._cfg.llm_api_base_url:
+            clean_model = model.replace("models/", "")
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{clean_model}:generateContent"
+            headers = {
+                "x-goog-api-key": self._cfg.llm_api_key,
+                "Content-Type": "application/json",
+            }
+            body = {
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "text": f"{system_prompt}\n\nStrict JSON output required adhering to schema:\n{user_prompt}"
+                            }
+                        ],
+                    }
+                ],
+                "generationConfig": {
+                    "temperature": temperature,
+                    "response_mime_type": "application/json",
+                },
+            }
+            with httpx.Client(timeout=float(self._cfg.llm_request_timeout_seconds)) as client:
+                resp = client.post(url, headers=headers, json=body)
+                resp.raise_for_status()
+                data = resp.json()
+
+            actual_model = clean_model
+            try:
+                content_str = data["candidates"][0]["content"]["parts"][0]["text"]
+                parsed = json.loads(content_str)
+            except Exception as exc:
+                raise LlmClientError(f"Failed to parse JSON response from Gemini: {exc}") from exc
+
+            if not isinstance(parsed, dict):
+                raise LlmClientError("Gemini response root must be a JSON object")
+            return parsed, str(actual_model)
+
         url = f"{self._cfg.llm_api_base_url.rstrip('/')}/chat/completions"
         headers = {
             "Authorization": f"Bearer {self._cfg.llm_api_key}",
@@ -100,6 +139,22 @@ class LlmClient:
             raise LlmClientError(
                 "LLM response must include 'json_content' object and 'citations' array"
             )
+
+        default_source_url = (
+            f"https://arxiv.org/pdf/{arxiv_id}v{version}.pdf"
+            if summary_type == "deep"
+            else f"https://arxiv.org/abs/{arxiv_id}v{version}"
+        )
+        for cit in citations:
+            if isinstance(cit, dict):
+                surl = cit.get("source_url")
+                if not surl or not isinstance(surl, str) or not surl.startswith("http"):
+                    cit["source_url"] = default_source_url
+                if summary_type != "deep":
+                    cit["source_page"] = None
+                    if not cit.get("source_section"):
+                        cit["source_section"] = "Abstract"
+
         return json_content, citations, actual_model
 
     def check_entailment(

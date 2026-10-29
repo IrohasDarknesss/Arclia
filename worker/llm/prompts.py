@@ -32,6 +32,10 @@ def build_summary_prompt(
         f"4. `source_scope` は `{source_scope}`、参照URLの基本値は `{source_url}` とすること。"
     )
 
+    citations_hint = (
+        f'citations の必須構造 (source_page は null にすること): [{{"claim_id": "c01", "source_url": "{source_url}", "source_section": "Abstract", "source_page": null}}]'
+    )
+
     if summary_type == "short":
         schema_hint = (
             "json_content の必須構造:\n"
@@ -73,6 +77,7 @@ def build_summary_prompt(
             + "\n- ".join(rejection_reasons)
         )
     user_parts.append(schema_hint)
+    user_parts.append(citations_hint)
 
     return system_prompt, "\n\n".join(user_parts)
 

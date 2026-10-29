@@ -30,11 +30,17 @@ export async function generateGroundedPaperChatAnswer(params: {
   summaryJson: Record<string, unknown>;
   citations: ChatContextCitation[];
 }): Promise<ChatLlmResult> {
-  const apiKey = process.env.LLM_API_KEY;
+  const geminiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.LLM_API_KEY || geminiKey;
   const baseUrl = (
-    process.env.LLM_API_BASE_URL || "https://api.openai.com/v1"
+    process.env.LLM_API_BASE_URL ||
+    (geminiKey && !process.env.LLM_API_KEY
+      ? "https://generativelanguage.googleapis.com/v1beta/openai"
+      : "https://api.openai.com/v1")
   ).replace(/\/$/, "");
-  const model = process.env.LLM_MODEL_AUXILIARY || "gpt-4o-mini";
+  const model =
+    process.env.LLM_MODEL_AUXILIARY ||
+    (geminiKey && !process.env.LLM_API_KEY ? "gemini-3.8-flash" : "gpt-4o-mini");
   const timeoutMs =
     parseInt(process.env.LLM_REQUEST_TIMEOUT_SECONDS || "120", 10) * 1000;
 
@@ -85,38 +91,79 @@ export async function generateGroundedPaperChatAnswer(params: {
   let actualModel = model;
 
   try {
-    const res = await fetch(`${baseUrl}/chat/completions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model,
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userPrompt },
-        ],
-        temperature: 0.2,
-        response_format: { type: "json_object" },
-      }),
-      signal: controller.signal,
-    });
-
-    if (!res.ok) {
-      throw new ApiError(
-        502,
-        "LLM_UNAVAILABLE",
-        "AI応答の生成中に外部サービスエラーが発生しました。",
+    let contentStr = "";
+    if (baseUrl.includes("generativelanguage.googleapis.com")) {
+      const cleanModel = (model || "gemini-3.5-flash-lite").replace("models/", "");
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${cleanModel}:generateContent`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": apiKey,
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                role: "user",
+                parts: [
+                  {
+                    text: `${systemPrompt}\n\nStrict JSON output:\n${userPrompt}`,
+                  },
+                ],
+              },
+            ],
+            generationConfig: { response_mime_type: "application/json" },
+          }),
+          signal: controller.signal,
+        },
       );
-    }
+      if (!res.ok) {
+        throw new ApiError(
+          502,
+          "LLM_UNAVAILABLE",
+          `Gemini AI応答エラー (${res.status})`,
+        );
+      }
+      const data = (await res.json()) as {
+        candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+      };
+      actualModel = cleanModel;
+      contentStr = data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+    } else {
+      const res = await fetch(`${baseUrl}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
+          ],
+          temperature: 0.2,
+          response_format: { type: "json_object" },
+        }),
+        signal: controller.signal,
+      });
 
-    const body = (await res.json()) as {
-      model?: string;
-      choices?: Array<{ message?: { content?: string } }>;
-    };
-    actualModel = body.model || model;
-    const contentStr = body.choices?.[0]?.message?.content || "";
+      if (!res.ok) {
+        throw new ApiError(
+          502,
+          "LLM_UNAVAILABLE",
+          "AI応答の生成中に外部サービスエラーが発生しました。",
+        );
+      }
+
+      const body = (await res.json()) as {
+        model?: string;
+        choices?: Array<{ message?: { content?: string } }>;
+      };
+      actualModel = body.model || model;
+      contentStr = body.choices?.[0]?.message?.content || "";
+    }
     rawJson = JSON.parse(contentStr);
   } catch (err) {
     if (err instanceof ApiError) throw err;

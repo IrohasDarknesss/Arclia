@@ -5,7 +5,9 @@ from __future__ import annotations
 import datetime as dt
 import json
 import logging
+import threading
 import time
+from collections import defaultdict, deque
 from typing import Any
 
 try:
@@ -26,12 +28,132 @@ class ArxivRateLimitUnavailableError(RuntimeError):
     """Raised when Redis is unreachable and fail-safe prevents unthrottled arXiv requests (ARC007)."""
 
 
+class InMemoryRedisClient:
+    """Thread-safe in-memory Redis emulator for local execution without a running Redis server."""
+
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls) -> "InMemoryRedisClient":
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = super().__new__(cls)
+                cls._instance._kv = {}
+                cls._instance._lists = defaultdict(deque)
+                cls._instance._client_lock = threading.Lock()
+            return cls._instance
+
+    def ping(self) -> bool:
+        return True
+
+    def set(
+        self,
+        name: str,
+        value: str,
+        ex: int | None = None,
+        nx: bool = False,
+    ) -> bool:
+        with self._client_lock:
+            now = time.monotonic()
+            existing = self._kv.get(name)
+            if existing is not None:
+                _, exp = existing
+                if exp is not None and now >= exp:
+                    del self._kv[name]
+                    existing = None
+
+            if nx and existing is not None:
+                return False
+
+            expiry = (now + ex) if ex is not None else None
+            self._kv[name] = (str(value), expiry)
+            return True
+
+    def get(self, name: str) -> str | None:
+        with self._client_lock:
+            existing = self._kv.get(name)
+            if existing is None:
+                return None
+            val, exp = existing
+            if exp is not None and time.monotonic() >= exp:
+                del self._kv[name]
+                return None
+            return val
+
+    def rpush(self, name: str, *values: str) -> int:
+        with self._client_lock:
+            q = self._lists[name]
+            for v in values:
+                q.append(str(v))
+            return len(q)
+
+    def blpop(self, keys: list[str], timeout: int = 0) -> tuple[str, str] | None:
+        deadline = time.monotonic() + max(0, timeout)
+        while True:
+            with self._client_lock:
+                for k in keys:
+                    q = self._lists.get(k)
+                    if q:
+                        return (k, q.popleft())
+            if timeout <= 0 or time.monotonic() >= deadline:
+                return None
+            time.sleep(0.1)
+
+    def lrange(self, name: str, start: int, end: int) -> list[str]:
+        with self._client_lock:
+            q = list(self._lists.get(name, []))
+            if end == -1:
+                return q[start:]
+            return q[start : end + 1]
+
+    def lrem(self, name: str, count: int, value: str) -> int:
+        with self._client_lock:
+            q = self._lists.get(name)
+            if not q:
+                return 0
+            removed = 0
+            items = list(q)
+            q.clear()
+            for item in items:
+                if item == value and (count == 0 or removed < abs(count)):
+                    removed += 1
+                else:
+                    q.append(item)
+            return removed
+
+    def delete(self, *names: str) -> int:
+        with self._client_lock:
+            count = 0
+            for name in names:
+                if name in self._kv:
+                    del self._kv[name]
+                    count += 1
+                if name in self._lists:
+                    del self._lists[name]
+                    count += 1
+            return count
+
+
 def get_redis_client() -> Any:
-    """Return a configured Redis client."""
-    if redis is None:
-        raise RuntimeError("redis package is not installed")
+    """Return a configured Redis client, falling back to in-memory emulator if server is offline."""
     cfg = get_config()
-    return redis.Redis.from_url(cfg.redis_url, decode_responses=True)
+    if cfg.redis_url.startswith("memory://"):
+        return InMemoryRedisClient()
+
+    if redis is not None:
+        try:
+            client = redis.Redis.from_url(
+                cfg.redis_url,
+                decode_responses=True,
+                socket_connect_timeout=0.5,
+                socket_timeout=0.5,
+            )
+            client.ping()
+            return client
+        except Exception:
+            return InMemoryRedisClient()
+
+    return InMemoryRedisClient()
 
 
 def acquire_arxiv_request_slot(

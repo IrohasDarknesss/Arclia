@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+import os
 from typing import Any
 
 from worker.config import get_config
@@ -102,8 +103,8 @@ def run_collect_metadata(
 
     try:
         start = 0
-        page_size = 100
-        max_pages = 20  # Up to 2,000 entries per run
+        page_size = 50
+        max_pages = int(os.environ.get("ARXIV_COLLECT_MAX_PAGES", "2"))  # Up to 100 entries per run by default
         total_fetched = 0
         new_versions_count = 0
 
