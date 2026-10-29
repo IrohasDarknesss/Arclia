@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 import httpx
@@ -73,7 +74,11 @@ class LlmClient:
             actual_model = clean_model
             try:
                 content_str = data["candidates"][0]["content"]["parts"][0]["text"]
-                parsed = json.loads(content_str)
+                try:
+                    parsed = json.loads(content_str)
+                except json.JSONDecodeError:
+                    sanitized = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', content_str)
+                    parsed = json.loads(sanitized)
             except Exception as exc:
                 raise LlmClientError(f"Failed to parse JSON response from Gemini: {exc}") from exc
 

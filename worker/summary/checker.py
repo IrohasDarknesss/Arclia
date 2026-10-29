@@ -7,7 +7,7 @@ from typing import Any, Callable
 
 from worker.summary.schema import extract_claim_objects
 
-# Standard English stop words / common tokens excluded from proper-noun matching
+# Standard English stop words / common tokens and domain acronyms excluded from proper-noun matching
 _COMMON_ENGLISH_WORDS = frozenset(
     {
         "A",
@@ -40,6 +40,39 @@ _COMMON_ENGLISH_WORDS = frozenset(
         "PDF",
         "URL",
         "API",
+        "CPU",
+        "GPU",
+        "TPU",
+        "JIT",
+        "SOTA",
+        "UI",
+        "UX",
+        "OS",
+        "ID",
+        "REST",
+        "HTTP",
+        "HTTPS",
+        "JSON",
+        "SQL",
+        "RGB",
+        "RGBD",
+        "FPS",
+        "2D",
+        "3D",
+        "4D",
+        "CNN",
+        "RNN",
+        "GNN",
+        "GAN",
+        "VAE",
+        "RL",
+        "OOD",
+        "IOU",
+        "MAP",
+        "AUC",
+        "ROC",
+        "BLEU",
+        "ROUGE",
     }
 )
 
@@ -49,8 +82,32 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z0-9_])(\d+(?:\.\d+)?)\s*(%|倍|件|個|層|
 _PROPER_NOUN_RE = re.compile(r"\b[A-Za-z][A-Za-z0-9\-_.]{1,}\b")
 
 
+_ENGLISH_NUMBER_WORDS = {
+    "zero": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
+    "ten": "10",
+    "eleven": "11",
+    "twelve": "12",
+    "first": "1",
+    "second": "2",
+    "third": "3",
+    "fourth": "4",
+    "fifth": "5",
+    "hundred": "100",
+    "thousand": "1000",
+}
+
+
 def _extract_source_numbers(source_text: str) -> set[str]:
-    """Extract normalized numeric literals from the English source text."""
+    """Extract normalized numeric literals and spelled-out number words from the English source text."""
     nums: set[str] = set()
     for match in re.finditer(r"\b\d+(?:,\d{3})*(?:\.\d+)?\b", source_text):
         raw = match.group(0).replace(",", "")
@@ -60,6 +117,11 @@ def _extract_source_numbers(source_text: str) -> set[str]:
             nums.add(f"{val:g}")
         except ValueError:
             pass
+    # Also extract English number words (e.g. "nine" -> "9", "first" -> "1")
+    lower_text = source_text.lower()
+    for word, digit in _ENGLISH_NUMBER_WORDS.items():
+        if re.search(rf"\b{word}\b", lower_text):
+            nums.add(digit)
     return nums
 
 

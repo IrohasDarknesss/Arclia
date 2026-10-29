@@ -12,6 +12,7 @@ import {
   MessageSquare,
   RefreshCw,
   Share2,
+  Sparkles,
 } from "lucide-react";
 import { apiFetch, ClientApiError } from "@/lib/api/client";
 import { useAuthSession } from "@/hooks/useAuthSession";
@@ -192,6 +193,36 @@ export default function PaperDetailPage() {
     },
     [detail],
   );
+
+  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
+  const [generateSummaryError, setGenerateSummaryError] = useState<string | null>(null);
+
+  const handleGenerateSummaryOnDemand = async (targetType: "short" | "standard" = "standard") => {
+    if (!detail) return;
+    setIsGeneratingSummary(true);
+    setGenerateSummaryError(null);
+    try {
+      const res = await apiFetch<SummaryApiResponse>(
+        `/api/papers/${encodeURIComponent(detail.arxivId)}/summary`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            type: targetType,
+            version: detail.version,
+          }),
+        },
+      );
+      setSummaryData(res);
+      showToast("✨ 日本語要約の生成が完了しました！");
+      await loadPaperDetail();
+    } catch (err) {
+      setGenerateSummaryError(
+        err instanceof Error ? err.message : "要約の自動生成に失敗しました。",
+      );
+    } finally {
+      setIsGeneratingSummary(false);
+    }
+  };
 
   useEffect(() => {
     loadPaperDetail();
@@ -577,16 +608,55 @@ export default function PaperDetailPage() {
           ) : !summaryData ||
             summaryData.status === "not_ready" ||
             !sumContent ? (
-            <div className="rounded-lg border border-amber-200 bg-amber-50/70 p-5 text-sm text-slate-800">
-              <p className="font-semibold">
-                {activeTab === "deep" && !detail.fullTextAllowed
-                  ? "この論文はライセンス条件により本文解析（10分解説）の対象外です。"
-                  : "選択された深さの日本語要約は現在準備中です。"}
-              </p>
-              <p className="mt-1 text-xs text-slate-600">
-                下の英語AbstractおよびarXiv原文ページをご参照ください。
-              </p>
-            </div>
+            activeTab === "deep" && !detail.fullTextAllowed ? (
+              <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-slate-800">
+                <p className="font-semibold">
+                  この論文はライセンス条件により本文解析（10分解説）の対象外です。
+                </p>
+                <p className="mt-1 text-xs text-slate-600">
+                  下の英語AbstractおよびarXiv原文ページをご参照ください。
+                </p>
+              </div>
+            ) : (
+              <div className="rounded-xl border border-blue-200/80 bg-gradient-to-br from-blue-50/70 via-indigo-50/30 to-white p-6 text-center shadow-sm">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600 shadow-sm">
+                  <Sparkles className="h-6 w-6" />
+                </div>
+                <h3 className="mt-3 text-base font-bold text-slate-900">
+                  この論文の日本語要約（{activeTab === "short" ? "30秒要点" : "3分要約"}）はまだ未生成です
+                </h3>
+                <p className="mx-auto mt-1 max-w-md text-xs text-slate-600 leading-relaxed">
+                  Google Gemini 3.5 Flash-Lite（無料枠）で、根拠箇所（Abstract）と数値を厳格検証した構造化日本語要約を約1.5秒で即時生成できます。
+                </p>
+
+                {generateSummaryError && (
+                  <p className="mt-2 text-xs font-medium text-red-600">
+                    {generateSummaryError}
+                  </p>
+                )}
+
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleGenerateSummaryOnDemand(activeTab === "deep" ? "standard" : activeTab)}
+                    disabled={isGeneratingSummary}
+                    className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow hover:from-blue-700 hover:to-indigo-700 transition disabled:opacity-50"
+                  >
+                    {isGeneratingSummary ? (
+                      <>
+                        <RefreshCw className="h-3.5 w-3.5 animate-spin" />
+                        <span>AI構造化要約を生成中（約1.5秒）...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="h-3.5 w-3.5" />
+                        <span>今すぐ日本語要約を生成する（無料・約1.5秒）</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            )
           ) : (
             <div className="space-y-6">
               {/* Thesis / Core Conclusion */}
